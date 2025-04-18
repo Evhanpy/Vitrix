@@ -10,6 +10,7 @@ from lib.UI.healthbar import HealthBar
 from lib.UI.crosshair import Crosshair
 from lib.weapons.hammer import Hammer
 from lib.weapons.pistol import Pistol
+from lib.weapons.glock import Glock
 from lib.weapons.sword import Sword
 from lib.weapons.battleaxe import BattleAxe
 from lib.items.aid_kit import AidKit, AidKitInHand
@@ -48,11 +49,13 @@ class Player(FirstPersonController):
         self.hammer = Hammer()
         self.sword = Sword()
         self.battleaxe = BattleAxe()
+        self.glock = Glock()
 
         self.pistol.disable()
         self.hammer.disable()
         self.sword.disable()
         self.battleaxe.disable()
+        self.glock.disable()
         self.inventory.append("hammer")
 
         self.pause_text = Text(
@@ -273,6 +276,7 @@ class Player(FirstPersonController):
         self.battleaxe.disable()
         self.aidkit.disable()
         self.ammo.disable()
+        self.glock.disable()
 
     def update(self):
         item_id = self.inventory.items[0][self.holding-1][0]
@@ -289,6 +293,8 @@ class Player(FirstPersonController):
             self.aidkit.enable()
         elif item_id == "ammo":
             self.ammo.enable()
+        elif item_id == "glock":
+            self.glock.enable()
         else:
             pass
 

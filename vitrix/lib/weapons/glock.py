@@ -2,7 +2,7 @@ import os
 from vitrix_engine import *
 from lib.data import GamePaths
 
-class Pistol(Entity):
+class Glock(Entity):
     def __init__(self):
         super().__init__(
             parent=camera.ui,
